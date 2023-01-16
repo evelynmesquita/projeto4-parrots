@@ -102,3 +102,32 @@ function VirarCartas(elemento){
   }
 }
 
+/*********FUNÇÃO FINALIZAR PARTIDA********/
+
+function FinalizarPartida(){
+  clearInterval(timerInterval);
+  let quantidadetoturn = document.querySelectorAll(".card.to-turn")
+  if (quantidadetoturn.length == quantidade){
+    alert(`Você ganhou em ${contador} jogadas!\nTempo: ${seg -1} segundos.`)
+    ReiniciarPartida()
+    seg = ''
+    contador = ''
+  }
+}
+
+/***********FUNÇÃO REINICIAR PARTIDA************/
+
+function ReiniciarPartida() {
+  let resposta = prompt("Gostaria de reiniciar a partida? Digite 'sim' ou 'não'")
+
+  while (resposta !== 'não' && resposta !== 'sim'){ 
+    resposta = prompt("Gostaria de reiniciar a partida? Digite 'sim' ou 'não'")
+    }
+  if (resposta === 'sim') { 
+    EscolherQuantidade()
+    setInterval(Cronometro, 10000) 
+  } else if (resposta === 'não'){
+    alert("Ótimo jogo! Até a próxima!")
+  }
+}
+
