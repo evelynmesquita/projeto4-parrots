@@ -8,3 +8,17 @@ const cartasImg =
     "media/photos/tripletsparrot.gif",
     "media/photos//unicornparrot.gif"]
 
+/******VARIAVEIS GLOBAIS****/
+let contador = 0;
+let seg = 0;
+let cardElemento1;
+let cardImg1;
+let quantidade;
+let limiteCartas;
+let timerInterval;
+
+/********FUNÇÃO DE EMBARALHAR CARTAS******/
+function EmbaralharCartas() { 
+	return Math.random() -0.5; 
+}
+
