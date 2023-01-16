@@ -131,3 +131,12 @@ function ReiniciarPartida() {
   }
 }
 
+/*********BÔNUS CRONOMETRO - SEGUNDOS**********/
+
+function Cronometro() {
+    let segundos = document.querySelector('.relogio')
+    segundos.innerHTML = `${seg++}`
+  }
+
+setInterval(Cronometro, 1000) 
+EscolherQuantidade() 
