@@ -65,3 +65,40 @@ function CriarCartas(){
   }
 }
 
+/********FUNÇÃO DE VIRAR CARTAS*******/
+
+function VirarCartas(elemento){
+  if (elemento.classList.contains("to-turn")){
+    return
+  } else if (document.querySelectorAll(".card.to-turn").length >= limiteCartas){
+    return
+  }  
+   
+  elemento.classList.add("to-turn")
+  
+  let CartasViradas = document.querySelectorAll(".to-turn")
+  contador++
+  
+  if ((CartasViradas.length)%2 !== 0){
+    cardElemento1 = elemento;
+    cardImg1 = cardElemento1.querySelector(".back-face img").src
+  }
+
+  if ((CartasViradas.length)%2 === 0) {
+    let cardImg2 = elemento.querySelector(".back-face img").src
+    CompararCartas(cardImg1, cardImg2, cardElemento1, elemento)
+  }
+
+  function CompararCartas(cardImg1, cardImg2, cardElemento1, elemento){
+    if (cardImg1 != cardImg2) {
+      setTimeout(function remover(){elemento.classList.remove('to-turn')
+      cardElemento1.classList.remove("to-turn")} , 1000);
+     
+    }  
+    if (cardImg1 == cardImg2){
+      limiteCartas += 2
+    }
+    setTimeout(FinalizarPartida, 1000)
+  }
+}
+
